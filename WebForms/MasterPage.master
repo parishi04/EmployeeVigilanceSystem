@@ -1,0 +1,201 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="MasterPage" %>
+
+<%@ Import Namespace="System.ComponentModel" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Vigilance Management System</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <link href="../assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link href="../assets/css/argon-design-system.css?v=1.2.0" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        .checked {
+            color: #ffd800;
+        }
+    </style>
+    <style>
+        /* width */
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 6px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 1px grey;
+            border-radius: 5px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            /*background: #525f7f;*/
+            background: white;
+            border-radius: 50px;
+        }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #5bc0de;
+            }
+
+
+        @media (min-width:576px) {
+            .margin-custom {
+                margin-top: 30px !important;
+            }
+        }
+    </style>
+</head>
+<body class="landing-page" style="color:black !important ">
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"></asp:ScriptManager>
+        <div>
+            <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom" style="z-index: 501">
+
+                <asp:LinkButton runat="server" ID="lbtnLogo" class="navbar-brand" PostBackUrl="~/WebForms/Home.aspx">
+      <%--  <img src="../Images/shinergylogo.png"  class="d-inline-block align-top" style="min-height:60px;" />--%>
+                     
+                    <h4 class="d-inline-block align-top text-white "> <i class="fa fa-home "></i>Home</h4>  
+                </asp:LinkButton>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="navbar_global" style="z-index: 1000">
+                    <div class="navbar-collapse-header">
+                        <div class="row">
+                            <div class="col-6 collapse-brand">
+                                <a href="../../../index.html">
+                                   <%-- <img src="../Images/shinergylogoblue.png" class="d-inline-block align-top" style="min-height: 60px;" />--%>
+                                   Vigilance Management System
+                                </a>
+                            </div>
+                            <div class="col-6 collapse-close">
+                                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+
+                         <li class="nav-item dropdown" runat="server" visible="false" id="li_Admin">
+                            <a href="#" class="nav-link" data-toggle="dropdown" role="button">
+                                <i class="ni ni-collection d-lg-none"></i>
+                                <span class="nav-link-inner--text"> Admin</span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="RoleMaster.aspx" class="dropdown-item">Role Master</a>
+                                <a href="UserMaster.aspx" class="dropdown-item">User Master</a>                              
+                            </div>
+                        </li>
+
+                          <li class="nav-item dropdown" runat="server"  id="li_request" visible ="false" >
+                            <a href="#" class="nav-link" data-toggle="dropdown" role="button">
+                                <i class="ni ni-collection d-lg-none"></i>
+                                <span class="nav-link-inner--text">Request</span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="CreateRequest.aspx" class="dropdown-item"  >Create New Request</a>
+                                <a href="EditRequestBin.aspx" class="dropdown-item" >Edit Open Request</a>                              
+                            </div>
+                        </li>
+                        
+                          <li class="nav-item dropdown" runat="server"  id="li_report" visible ="false" >
+                            <a href="#" class="nav-link" data-toggle="dropdown" role="button">
+                                <i class="ni ni-collection d-lg-none"></i>
+                                <span class="nav-link-inner--text">Report</span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="Report_All.aspx" class="dropdown-item"  >Common Report</a>
+                                <a href="Report_CaseWise.aspx" class="dropdown-item" >Case Wise Report</a>                              
+                            </div>
+                        </li>
+
+<%--                         <li class="nav-item dropdown" id="li_report" visible="false" runat="server"  >
+                            <a href="Report_All.aspx" class="nav-link"  role="button">
+                                <i class="ni ni-ui-04 d-lg-none"></i>
+                                <span class="nav-link-inner--text">Report</span>
+                            </a>
+                        </li>--%>
+                       
+                    </ul>
+                    <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+                
+                        <li class="nav-item d-none d-lg-block ml-lg-4">
+                            <a href="#" class="btn btn-neutral btn-icon">
+                                <span class="btn-inner--icon">
+                                    <i class="ni ni-hat-3"></i>
+                                </span>
+                                <asp:Label runat="server" ID="lblName" class="nav-link-inner--text"></asp:Label>
+                            </a>
+                        </li>
+
+                        <li class="nav-item d-none d-lg-block">
+                            <asp:LinkButton runat="server" ID="lbtnLogout" class="btn btn-neutral btn-icon" ToolTip="Log Out" >
+                                <span class="btn-inner--icon">
+                                    <i class="fa fa-sign-out" style="font-size: 16px"></i>
+                                </span>
+                                <asp:Label runat="server" ID="Label1" class="nav-link-inner--text"></asp:Label>
+                            </asp:LinkButton>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+            </nav>
+         
+
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+    </form>
+
+    <!--   Core JS Files   -->
+    <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+    <script src="../assets/js/plugins/bootstrap-switch.js"></script>
+    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+    <script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+    <script src="../assets/js/plugins/moment.min.js"></script>
+    <script src="../assets/js/plugins/datetimepicker.js" type="text/javascript"></script>
+    <script src="../assets/js/plugins/bootstrap-datepicker.min.js"></script>
+    <!-- Control Center for Argon UI Kit: parallax effects, scripts for the example pages etc -->
+    <!--  Google Maps Plugin    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    <script src="../assets/js/argon-design-system.min.js?v=1.2.0" type="text/javascript"></script>
+    <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+    <script>
+        window.TrackJS &&
+          TrackJS.install({
+              token: "ee6fab19c5a04ac1a32a645abde4613a",
+              application: "argon-design-system-pro"
+          });
+    </script>
+</body>
+</html>
