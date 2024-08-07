@@ -1,6 +1,3 @@
-The Employee Management System project has been a valuable learning experience, providing hands-on experience in web application development, 
-data management, and user interface design. The project has not only met its objectives but also enhanced technical and problem-solving skills,
-contributing to personal and professional growth.
 
 To view the code Open Web forms < Employee1.aspx (for employee form) < Employee!.aspx.vb (for sql connection)
 
